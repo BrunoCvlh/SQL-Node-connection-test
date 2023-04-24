@@ -1,15 +1,15 @@
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize("bruno", "root", "Luanalinda350400@", {
-  host: 'localhost',
+//Conexao com o banco de dados mySQL
+const sequelize = new Sequelize('datadimontagna', 'root', 'Luanalinda350400@', {
+  host: "localhost",
   dialect: 'mysql'
 });
 
-sequelize.authenticate()
-  .then(function () {
-    console.log("Conexão com o banco de dados realizada com sucesso");
-  }).catch(function () {
-    console.log("Erro: Conexão com o banco de dados não realizada com sucesso");
-  });
+var db = {};
 
-module.exports = sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;
+
